@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+</head>
+<body>
+    <img src="{{ url_for('static', filename='price (1).png') }}"/>
+    <h1>Nilay's Used Car Price Prediction App</h1>
+    <form action="predict" method="post">
+        <input name="km" type="number" placeholder="Enter kilomerters (Kms)" min="1000" max="1000000"  required/>
+        
+        
+        <input name="age" type="number" placeholder="Enter car age (years)" min="0" max="100"  required/>
+        
+        <input name="op" type="number" placeholder="Enter original price (R)" min="10000" max="10000000" required/>
+        
+        <select name="fuel_type">
+            <option value="Select">Select Fuel</option> 
+            <option value="Petrol">Petrol</option> 
+            <option value="Diesel">Diesel</option> 
+            <option value="CNG">CNG</option>                     
+        </select>
+        
+        <select name="transmission">
+            <option value="Select">Select transmission</option> 
+            <option value="Automatic">Automatic</option> 
+            <option value="Manual">Manual</option>                     
+        </select>
+        
+       
+       <button>Predict Price </button>
+    
+       
+        <span>{{prediction_value}}</span>
+    </form>
+</body>
+</html>
